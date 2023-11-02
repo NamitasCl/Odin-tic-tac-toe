@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Karla';
+    src: url(../Comfortaa/Comfortaa-VariableFont_wght.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(29, 29, 82);
+    color: white;
+    font-family: 'Karla', sans-serif;
+}
+
+#gameModule {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#gameModule h1 {
+    margin: 10px;
+    color: greenyellow;
+    text-shadow: 1px 1px 2px white;
+    font-size: 3rem;
+}
+
+.jugador-uno, .jugador-dos {
+    display: block;
+    margin: 10px;
+}
+
+#gameModule ul {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    gap: 10px;
+    justify-content: center;
+    list-style: none;
+}
+
+#gameModule ul li div.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    border: none;
+    background-color: grey;
+    box-shadow: 0 0 4px 2px white;
+    font-size: 2rem;
+}
+
+.ganador {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.ganador p {
+    margin: 20px;
+}
+
+.btnRestart {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 3px 1px white;
+    background-color: rgb(153, 71, 230);
+}
+
+.btnRestart:hover {
+    background-color: blueviolet;
+    box-shadow: 0 0 4px 2px white inset;
+}

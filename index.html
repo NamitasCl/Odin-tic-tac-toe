@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+    <div id="gameModule">
+        <h1>Tic-tac-toe!</h1>
+        <span class="jugador-uno"></span>
+        <span class="jugador-dos"></span>
+        <ul class="board">
+            <script id="ttt-template" type="text/template">
+                {{#gameboard}}
+                <li>
+                    <div class="cell">{{.}}</div>
+                </li>
+                {{/gameboard}}
+            </script>
+        </ul>
+        <div class="ganador">
+            <p></p>
+        </div>
+    </div>
+
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="./scripts/gameLogic.js"></script>
+    <script src="./scripts/ai.js"></script>
+</body>
+</html>
