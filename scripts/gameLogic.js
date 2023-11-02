@@ -44,7 +44,7 @@ let game = (function() {
     function reiniciar() {
         g = null;
         players.resetMoves();
-        players.setActivePlayer();
+        //players.setActivePlayer();
         limpiarTablero();
         $cuadroGanador.text("")
         $cuadroGanador.remove($buttonRestart);
@@ -61,22 +61,25 @@ let game = (function() {
         //players.setActivePlayer();
         jugadas++;
         insertarJugadaAi(e);
-        checkFullBoard();
-        //g = checkWin(ganador);
-        // if (g) {
-        //     renderGanador(g);
+        
+        g = checkWin(ganador);
+        if(g === null && checkFullBoard().length === 0){
+            g = 'iguales'
+        }
+        if (g) {
+            renderGanador(g);
 
-        // }
+        }
     }
 
     function insertarJugadaAi(e) {
+        if(checkFullBoard().length === 0) return;
         let indice;
         if(!g) {
             indice = ai().index;
         } else {
             return;
         }
-        console.log(indice);
         $modulo.find('ul li div')[indice].innerText = ai().mark;
         jugadas++;
         
@@ -100,7 +103,7 @@ let game = (function() {
         let marcados = Array.from(celdas);
         let controlPlayer1 = 0;
         let controlPlayer2 = 0;
-        let controlEmpate = 0;
+        
 
         player1.sort();
         player2.sort();
@@ -130,11 +133,8 @@ let game = (function() {
 
             controlPlayer1 = 0;
             controlPlayer2 = 0;
-            controlEmpate++;
-        }       
-        if(controlEmpate === 8 && jugadas === 9){
-            return 'iguales';
         }
+        return null;
     }
 
     function getBoard() {
@@ -149,12 +149,18 @@ let game = (function() {
         let indexesBoard = Array.from(getBoardCurrentState());
         let board = [];
 
-        indexesBoard.forEach(e => {
-            board.push($(e).closest('div').text());
-        })
+        indexesBoard.forEach((e, index) => {
+        
+            if($(e).text()){
+                board.push($(e).text());
+            } else {
+                board.push(index);
+            }
+        });
 
-        console.log(board);
-        console.log(board.find(''));
+        let a = board.filter(i => (i != 'X' && i != 'O'));
+
+        return a;
         
     }
     
